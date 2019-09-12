@@ -135,7 +135,7 @@ After the binding the application container (droplet) has to be restarted or res
 marketplace service. If a marketplace service only extends the environment of an application a restart is sufficient. 
 Otherwise the application has to be restaged. During restaging a new application container is created. An example 
 of such a marketplace service is New Relic on the Pivotal Cloud Foundry because an java agent is added to the application 
-container. See the section regarding [starting, stopping and restarting applications](#Start,-stop-and-restart-an-application). 
+container. See the section regarding [starting, stopping and restarting applications](#Start-stop-and-restart-an-application). 
 For restaging the command `cf restage <app>` is used. 
 
 
