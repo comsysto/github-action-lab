@@ -1,4 +1,4 @@
-# Agile Starter Bundle
+# Agile Dev Starter
 This is a simple sample application which can be used for different platforms, e.g. Cloud Foundry. It is a Spring Boot 
 Java application which provides a simple REST API. Furthermore a database is used to store some data.
 
