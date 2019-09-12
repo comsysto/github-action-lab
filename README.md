@@ -9,6 +9,35 @@ Foundry commands to get started with Spring Boot and Cloud Foundry.
 For more information about Cloud Foundry commands use `cf help <command>` (Cloud Foundry CLI) or consult the 
 [Cloud Foundry document](https://docs.cloudfoundry.org/devguide/index.html).
 
+### Log into Cloud Foundry
+First of all a user has to be log into Cloud Foundry. For this the command `cf login` can be used. Using it the first time 
+an API url has to be provided by adding the parameter `-a`. Afterwards the last set API url is used for further logins.
+
+Sample command to log into Pivotal Cloud Foundry:
+```
+cf login -a api.run.pivotal.io
+```
+
+Afterwards the user and password has to be entered. It is also possible to add user and password to command directly. For 
+further information see [Cloud Foundry documentation](https://docs.cloudfoundry.org/cf-cli/getting-started.html#login).
+
+### Show and switch organisations and spaces
+On Cloud Foundry it is usual to have several organisations and spaces. There several commands to get some information 
+about the platform, organisations and spaces. First of all the commands `cf orgs` and `cf spaces` list all assigned 
+organisations respectively spaces.
+
+With the `cf target` command information about the platform are shown. Furthermore this command is used to switch between 
+organisations and spaces.
+
+Sample command to switch to another organisation:
+```
+cf target -o another-org
+``` 
+Sample command to switch to another space:
+```
+cf target -s infrastructure
+```
+
 ### Deploy an application
 The command `cf push` is used to deploy an application to Cloud Foundry. To ease the deployment configuration a 
 `manifest.yaml` file can be used to set several deployment options. It is also possible to command parameters instead 
@@ -20,7 +49,7 @@ Sample command using `manifest.yaml`:
 cf push -p build/libs/agilestarterbundle-0.0.1-SNAPSHOT.jar
 ``` 
 
-You can add the parameter `--no-start` so that the application is not started after a successful deployment.
+The parameter `--no-start` can be added so that the application is not started after a successful deployment.
 
 ### Show deployed apps
 All deployed applications on Cloud Foundry can be listed using the `cf apps` command. Afterwards all applications with 
@@ -106,8 +135,9 @@ After the binding the application container (droplet) has to be restarted or res
 marketplace service. If a marketplace service only extends the environment of an application a restart is sufficient. 
 Otherwise the application has to be restaged. During restaging a new application container is created. An example 
 of such a marketplace service is New Relic on the Pivotal Cloud Foundry because an java agent is added to the application 
-container. See the section regarding starting, stopping and restarting applications. For restaging the command 
-`cf restage <app>` is used. 
+container. See the section regarding [starting, stopping and restarting applications](#Start,-stop-and-restart-an-application). 
+For restaging the command `cf restage <app>` is used. 
+
 
 ### Create and bind a user-provided service
 Beside marketplace services there are user-provided services. These are services which are created manually. The purpose 
