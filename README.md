@@ -2,6 +2,50 @@
 This is a simple sample application which can be used for different platforms, e.g. Cloud Foundry. It is a Spring Boot 
 Java application which provides a simple REST API. Furthermore a database is used to store some data.
 
+## REST API
+A simple REST API is provided by the Agile Dev Starter application. In the following the different request are listed.
+
+## Get one item
+URL: `/burgers/{burgerId}`  
+Method: `GET`  
+Status: 200  
+Response:
+```json
+{
+    "id": 1,
+    "name": "Hamburger",
+    "price": 3.99
+}
+```
+
+The request returns the requested item.
+
+## Get all items
+URL: `/burgers`  
+Method: `GET`  
+Status: 200
+
+The request returns a list of all available items.
+
+## Create item
+URL: `/burgers`  
+Method: `POST`  
+Status: 201  
+Request:
+```json
+{
+    "name": "Hamburger",
+    "price": 3.99
+}
+```
+
+## Delete item
+URL: `/burgers/{burgerId}`  
+Method: `DELETE`  
+Status: 204  
+
+The request deletes an item.
+
 ## Cloud Foundry
 This is quick guide to deploy, run and manage this application on Cloud Foundry platform. It will show the basic Cloud 
 Foundry commands to get started with Spring Boot and Cloud Foundry.
@@ -207,7 +251,6 @@ Thus, older logs are discarded when the buffer has reached its limit. For more i
 [Cloud Foundry documentation](https://docs.cloudfoundry.org/devguide/deploy-apps/streaming-logs.html#view).
 
 ### Setup application
-
 The Agile Dev Starter application is using two services. It needs a database service from the marketplace and a user-provided 
 service to demonstrate how to use it from the environment. The database service provides access to a Postgres database 
 and is named `agile-dev-starter-db`. The user-provided service provides sample credentials which are use in configuration 
@@ -228,6 +271,5 @@ cf create-user-provided-service agile-dev-starter-sample-ups -p url,user,passwor
 ```
 
 ### Local setup application
-
 For local development the profile `local` was introduced. The `cloud` profile is not active by default to avoid setup 
 overhead. It is highly recommended to use the profile `local` for local development.
