@@ -1,1 +1,1 @@
-rootProject.name = "agilestarterbundle"
+rootProject.name = "agile-dev-starter"

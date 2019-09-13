@@ -1,13 +1,13 @@
-package com.comsysto.agilestarterbundle;
+package com.comsysto.agiledevstarter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AgilestarterbundleApplication {
+public class AgileDevStarterApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AgilestarterbundleApplication.class, args);
+        SpringApplication.run(AgileDevStarterApplication.class, args);
     }
 
 }
