@@ -19,7 +19,7 @@ cache:
     - $HOME/.gradle/wrapper/
 
 script:
-  - ./gradlew clean build --scan -s
+  - ./gradlew clean build
 
 # deploy
 deploy:
