@@ -1,8 +1,27 @@
 language: java
+install: true
+os: linux
+dist: trusty
 jdk:
 - openjdk11
+
 branches:
 - develop
+
+# build
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+
+script:
+  - ./gradlew clean build --scan -s
+
+# deploy
 deploy:
   provider: cloudfoundry
   api: https://api.run.pivotal.io
