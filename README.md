@@ -1,4 +1,7 @@
 # Agile Dev Starter
+
+Develop branch: [![Build Status](https://travis-ci.org/comsysto/agile-dev-starter-project.svg?branch=develop)](https://travis-ci.org/comsysto/agile-dev-starter-project)
+
 This is a simple sample application which can be used for different platforms, e.g. Cloud Foundry. It is a Spring Boot 
 Java application which provides a simple REST API. Furthermore a database is used to store some data.
 
