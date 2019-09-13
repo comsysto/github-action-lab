@@ -197,3 +197,37 @@ facilitates the Cloud Foundry environment so that it can be used within the appl
 After adding services and environment variable the environment of an application can be shown. It contains all added 
 variables and additional information which are added by Cloud Foundry. The command `cf env <app>` has to be executed to 
 show the environment of an application.
+
+### Show application log
+The application logs can be accessed using the `cf logs <app>` command. Without any further parameters it is tailing the 
+current log. With the parameter `--recent` the recent log can be shown without tailing it.
+
+An important information regarding logging is that the log is not persistent. Cloud Foundry is using a buffer for the log. 
+Thus, older logs are discarded when the buffer has reached its limit. For more information see the 
+[Cloud Foundry documentation](https://docs.cloudfoundry.org/devguide/deploy-apps/streaming-logs.html#view).
+
+### Setup application
+
+The Agile Dev Starter application is using two services. It needs a database service from the marketplace and a user-provided 
+service to demonstrate how to use it from the environment. The database service provides access to a Postgres database 
+and is named `agile-dev-starter-db`. The user-provided service provides sample credentials which are use in configuration 
+files and is named `agile-dev-starter-sample-ups`. These services are added to the `manifest.yaml` to bind these to the 
+application after deployment automatically.
+
+Furthermore the Spring environment variable `SPRING_PROFILES_INCLUDE` is used to activate the `cloud` profile in the 
+Agile Dev Starter application.
+
+#### Create Postgres database service from Pivotal marketplace
+```
+cf create-service elephantsql turtle agile-dev-starter-db
+```
+
+#### Create user-provided service for sample credentials
+```
+cf create-user-provided-service agile-dev-starter-sample-ups -p url,user,password
+```
+
+### Local setup application
+
+For local development the profile `local` was introduced. The `cloud` profile is not active by default to avoid setup 
+overhead. It is highly recommended to use the profile `local` for local development.

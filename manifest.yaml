@@ -5,8 +5,9 @@ applications:
     buildpacks:
       - java_buildpack
     stack: cflinuxfs3
-#    services:
+    services:
+      - agile-dev-starter-db
+      - agile-dev-starter-sample-ups
     env:
-      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ }}'
-#      JBP_CONFIG_CONTAINER_CERTIFICATE_TRUST_STORE: '{enabled: true}'
-      SPRING_PROFILES_INCLUDE: cloud
+      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ }}' # Java buildpack configuration to set a Java version
+      SPRING_PROFILES_INCLUDE: cloud                       # Activate Spring cloud profile

@@ -1,1 +1,13 @@
+agile-dev-starter:
+  sample-config:
+    url: ${vcap.services.agile-dev-starter-sample-ups.credentials.url}
+    user: ${vcap.services.agile-dev-starter-sample-ups.credentials.user}
+    password: ${vcap.services.agile-dev-starter-sample-ups.credentials.password}
 
+spring:
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
