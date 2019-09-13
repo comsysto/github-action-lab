@@ -1,3 +1,15 @@
 language: java
 jdk:
-  - openjdk11
+- openjdk11
+
+deploy:
+  provider: cloudfoundry
+  api: https://api.run.pivotal.io
+  username: pws.comsysto@reply.de
+  password:
+    secure: GhaBNmGUgid3Y3/XLCDKpqsjkGkt+voDdtZr5XaMa//ezDse5FeEWbuNFxnTVdYmAjLeh3WyeUDmS2cmjPE/+BIOjgVUpZmHJmMvJA3b8Di6cdxBI2HmF+qoVAh8nlmZCEXJKXXQ46ybjuzYYBcvk0lSuW3RPw8EA1F2/qvntz9YDpE1nHyrCiRYgive4KQy+NFmOfrCIKTVMViSmz3wNShS2uv4Ro1Ob8BgAaRh0WpDTQP6vZWfKCDJbFUGmUtvtgbtyMCPPxBGVCnGD3hBa7GawruK48K9HgVBHvW+pQ8BzBLl3XcFgq4TjbTxsbyT9aJr/rnHgJMhGdE4mX8bhDdsgVvtqPbzIO9EFs+R70DfoQSTtTCFf/F+k8a5bC6PBY0bt4Vc5fTD/RdJyNQ5VtbgHOfPCFo8ECxQ4G77Wd0T7n+w6OBLcY20YjxDrokiaWG4HHBdaCpBf8T4W2OFpqp55qTFDIMoMLdG8JSM1hd6H3dGJN/jEvOIsTWoFWmBT7/uoNGlROMOQKWx8qV0U0xkmsfg9h5j4k/27M+GDvUpftcpyBjGPk6TBIHsESVf9MufcNTufiDMOVfc5qGGPz5vZibZW8vj55SwKLBu43lIa+fqjF/Vb7Xue83kvKz192PMHAdC+5yocOv0krwPf4Ze5qvOqtvEppzzZdoE3+M=
+  organization: mvg
+  space: development
+  on:
+    repo: comsysto/agile-dev-starter-project
+    branch: develop
