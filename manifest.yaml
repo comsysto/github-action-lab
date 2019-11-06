@@ -1,6 +1,5 @@
 applications:
   - name: agile-dev-starter
-    path: ./build/libs/agile-dev-starter-0.0.1-SNAPSHOT.jar
     memory: 1024M
     disk_quota: 1024M
     buildpacks:
