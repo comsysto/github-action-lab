@@ -21,7 +21,7 @@ jobs:
         id: cf
         uses: comsysto/cloudfoundry-action@master
         with:
-          api: ${{ secrets.CF_API }}
+          api: 'https://api.run.pivotal.io'
           org: 'mvg'
           space: 'dev'
           user: ${{ secrets.CF_USERNAME }}
