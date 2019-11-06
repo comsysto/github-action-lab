@@ -23,7 +23,7 @@ jobs:
         with:
           api: 'https://api.run.pivotal.io'
           org: 'mvg'
-          space: 'dev'
+          space: 'development'
           user: ${{ secrets.CF_USERNAME }}
           password: ${{ secrets.CF_PASSWORD }}
       - name: Cloudfoundry deployment result
