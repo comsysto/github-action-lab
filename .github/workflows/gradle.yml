@@ -13,15 +13,16 @@ jobs:
         java-version: 11
     - name: Build with Gradle
       run: ./gradlew build
-  hello:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout private action
         uses: actions/checkout@v1
       - uses: ./
+        run: ls -la
       - name: Cloudfoundry deployment
         id: cf
-        uses: comsysto/cloudfoundry-action@master
+        uses: actions/cloudfoundry-action@master
         with:
           myInput: 'cloudfoundry'
       - name: Cloudfoundry deployment result
