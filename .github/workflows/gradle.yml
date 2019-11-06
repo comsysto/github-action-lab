@@ -24,7 +24,7 @@ jobs:
           api: ${{ secrets.CF_API }}
           org: 'mvg'
           space: 'dev'
-          user: ${{ secrets.CF_USER }}
+          user: ${{ secrets.CF_USERNAME }}
           password: ${{ secrets.CF_PASSWORD }}
       - name: Cloudfoundry deployment result
         run: echo "Deployment was ${{ steps.cf.outputs.deploymentResult }}"
