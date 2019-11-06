@@ -14,10 +14,8 @@ jobs:
         java-version: 11
     - name: Build with Gradle
       run: ./gradlew clean build
-    - name: List workspace
-      run: ls -la
     - name: Add manifest to build result
-      run: cp ./manifest.yml ./build/libs
+      run: cp ./manifest.yaml ./build/libs
     - uses: actions/upload-artifact@v1
       with:
         name: github-action-lab-artifact
