@@ -19,7 +19,7 @@ jobs:
       - name: Checkout private action
         uses: actions/checkout@v1
       - uses: ./
-        run: ls -la
+      - run: ls -la
       - name: Cloudfoundry deployment
         id: cf
         uses: actions/cloudfoundry-action@master
