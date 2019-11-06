@@ -1,4 +1,4 @@
-name: Java CI
+name: Couldfoundry CI Lab
 
 on: [push]
 
@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Checkout private action
         uses: actions/checkout@v1
-      - uses: comsysto/
+      - uses: ./
       - name: Cloudfoundry deployment
         id: cf
         uses: comsysto/cloudfoundry-action@master
