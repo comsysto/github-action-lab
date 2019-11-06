@@ -15,7 +15,7 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew clean build
     - name: Add manifest to build result
-      run: cp manifest.yml build/libs
+      run: cp ./manifest.yml ./build/libs
     - uses: actions/upload-artifact@v1
       with:
         name: github-action-lab-artifact
