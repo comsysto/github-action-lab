@@ -3,7 +3,7 @@ name: Couldfoundry CI Lab
 on: [push]
 
 jobs:
-  # enable once action is implemented
+  # enable once action is implemente
   ## build:
   ##   runs-on: ubuntu-latest
   ##   steps:
