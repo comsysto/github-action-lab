@@ -3,7 +3,7 @@ name: Couldfoundry CI Lab
 on: [push]
 
 jobs:
-  # enable once action is implemente
+  # enable once action is implemented
   ## build:
   ##   runs-on: ubuntu-latest
   ##   steps:
@@ -17,13 +17,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      ##- name: Checkout private action
-      ##  uses: actions/checkout@v1
-      ##- uses: ./
       - name: Cloudfoundry deployment
         id: cf
         uses: comsysto/cloudfoundry-action@master
         with:
-          myInput: 'cloudfoundry'
+          api: ${{ secrets.CF_API }}
+          org: 'mvg'
+          space: 'dev'
+          user: ${{ secrets.CF_USER }}
+          password: ${{ secrets.CF_PASSWORD }}
       - name: Cloudfoundry deployment result
         run: echo "Deployment was ${{ steps.cf.outputs.deploymentResult }}"
