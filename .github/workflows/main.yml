@@ -50,7 +50,12 @@ jobs:
       - name: Read deploymentInfo.json
         id: deploymentInfo
         run: |
-          rawJson=$(cat deploymentArchive/deploymentInfo.json)
+          rawJson=cat deploymentArchive/deploymentInfo.json
+
+          echo $rawJson
+
+          echo "Parsing raw json"
+
           deploymentInfo=toJson($rawJson)
 
           echo "Archive path from deploymentInfo file: ${deploymentInfo.archivePath}"
