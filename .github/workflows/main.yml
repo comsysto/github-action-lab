@@ -14,12 +14,13 @@ jobs:
       run: ./gradlew clean build
     - name: Create deployment descriptor
       run: |
-      archivesBaseName="$(./gradlew properties -q | grep '^archivesBaseName:' | awk '{print $2}')"
-      echo "archivePath: artifactDir/${archivesBaseName}-1.jar" >> deployment.yaml
+            archivesBaseName="$(./gradlew properties -q | grep '^archivesBaseName:' | awk '{print $2}')"
+            version="$(./gradlew properties  -q | grep '^version:' | awk '{print $2}')"
+            echo "archivePath: artifactDir/${archivesBaseName}-${version}.jar" >> deployment.yaml
     - name: Add manifest to build result
       run: |
-      cp ./manifest.yaml ./build/libs
-      echo "manifestPath: artifactDir/manifest.yaml" >> deployment.yaml
+            cp ./manifest.yaml ./build/libs
+            echo "manifestPath: artifactDir/manifest.yaml" >> deployment.yaml
     - uses: actions/upload-artifact@v1
       with:
         name: artifactDir
@@ -46,9 +47,9 @@ jobs:
           name: artifactDir
       - name: Read deployment.yaml
         run: |
-        less artifactDir/deployment.yaml
-        export archivePath=artifactDir/manifest.yaml
-        export manifestPath=artifactDir/manifest.yaml
+              less artifactDir/deployment.yaml
+              export archivePath=artifactDir/manifest.yaml
+              export manifestPath=artifactDir/manifest.yaml
       - name: cf push
         uses: comsysto/cloudfoundry-action/cli@develop
         with:
