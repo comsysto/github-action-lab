@@ -14,8 +14,8 @@ jobs:
       run: ./gradlew clean build
     - name: Create deployment descriptor
       run: |
-      archivesBaseName=$(./gradlew properties --no-daemon -q | grep "^archivesBaseName:" | awk '{print $2}')
-      version=$(./gradlew properties --no-daemon -q | grep "^version:" | awk '{print $2}')
+      archivesBaseName="$(./gradlew properties -q | grep "^archivesBaseName:" | awk '{print $2}')"
+      version="$(./gradlew properties  -q | grep "^version:" | awk '{print $2}')"
       echo "archivePath: artifactDir/$archivesBaseName-$version.jar" >> deployment.yaml
     - name: Add manifest to build result
       run: |
