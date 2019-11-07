@@ -21,7 +21,7 @@ jobs:
 
         cat >./build/libs/deploymentInfo.json <<EOL
         {
-          "archivePath": "deploymentArchive/${archivesBaseName}-${version}.jar",
+          "artifactPath": "deploymentArchive/${archivesBaseName}-${version}.jar",
           "manifestPath": "deploymentArchive/manifest.yaml"
         }
         EOL
