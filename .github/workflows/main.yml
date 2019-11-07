@@ -54,8 +54,8 @@ jobs:
       - name: Read deploymentInfo.json
         id: deploymentInfo
         uses: comsysto/deployment-information-action/read@master
-         with:
-           archive-path: deploymentArchive
+        with:
+          archive-path: deploymentArchive
       - name: Debug deploymentInfo
         run: |
           echo "${{ steps.deploymentInfo.outputs.cf-manifest-path }}"
