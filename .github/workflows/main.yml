@@ -51,4 +51,4 @@ jobs:
       - name: cf push
         uses: comsysto/cloudfoundry-action/cli@develop
         with:
-          args: push -f ${{ manifestPath }} -p ${{ archivePath }} --no-start
+          args: push -f $manifestPath -p $archivePath --no-start
