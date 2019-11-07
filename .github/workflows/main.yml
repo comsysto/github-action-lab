@@ -25,14 +25,12 @@ jobs:
       #  uses: actions/download-artifact@v1
       #  with:
       #    name: github-action-lab-artifact
-      - name: cf api
-        uses: comsysto/cloudfoundry-action/cli@develop
+      - name: cf login
+        uses: comsysto/cloudfoundry-action/auth@develop
         with:
-          args: api 'https://api.run.pivotal.io'
-      - name: cf auth
-        uses: comsysto/cloudfoundry-action/cli@develop
-        with:
-          args: ['auth',"${{ secrets.CF_USERNAME }}","${{ secrets.CF_PASSWORD }}"]
+          api: 'https://api.run.pivotal.io'
+          user: ${{ secrets.CF_USERNAME }}
+          password: ${{ secrets.CF_PASSWORD }}
       - name: cf target
         uses: comsysto/cloudfoundry-action/cli@develop
         with:
