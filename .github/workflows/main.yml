@@ -62,7 +62,7 @@ jobs:
 
           echo "----"
 
-          rawJson=(<deploymentArchive/deploymentInfo.json)
+          rawJson=$(<deploymentArchive/deploymentInfo.json)
 
           echo $rawJson
 
