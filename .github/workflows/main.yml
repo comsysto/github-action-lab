@@ -27,7 +27,7 @@ jobs:
         name: deploymentArchive
         path: build/libs
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     needs: build
     steps:
       - name: cf login to https://api.run.pivotal.io
