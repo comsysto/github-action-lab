@@ -47,10 +47,11 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: deploymentArchive
-      - name: Read deployment.yaml
+      - name: Read deploymentInfo.json
         id: deploymentInfo
         run: |
-          deploymentInfo=toJson(`cat deploymentArchive/deploymentInfo.json`)
+          rawJson=`cat deploymentArchive/deploymentInfo.json`
+          deploymentInfo=toJson($rawJson)
 
           echo "Archive path from deploymentInfo file: ${deploymentInfo.archivePath}"
           echo "Manifest path from deploymentInfo file: ${deploymentInfo.manifestPath}"
