@@ -50,9 +50,9 @@ jobs:
           less deploymentArchive/deployment.yaml
           export archivePath=deploymentArchive/agile-dev-starter-0.0.1-SNAPSHOT.jar
           export manifestPath=deploymentArchive/manifest.yaml
-          echo "::set-env name=archivePath::deploymentArchive/agile-dev-starter-0.0.1-SNAPSHOT.jar"
-          echo "::set-env name=manifestPath::deploymentArchive/manifest.yaml"
+          echo "::set-output name=archivePath::deploymentArchive/agile-dev-starter-0.0.1-SNAPSHOT.jar"
+          echo "::set-output name=manifestPath::deploymentArchive/manifest.yaml"
       - name: cf push
         uses: comsysto/cloudfoundry-action/cli@develop
         with:
-          args: push -f $manifestPath -p $archivePath --no-start
+          args: push -f ${{ steps.deploymentInfo.outputs.manifestPath }} -p ${{ steps.deploymentInfo.outputs.archivePath }} --no-start
