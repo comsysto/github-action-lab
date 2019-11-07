@@ -19,10 +19,14 @@ jobs:
         archivesBaseName="$(./gradlew properties -q | grep '^archivesBaseName:' | awk '{print $2}')"
         version="$(./gradlew properties  -q | grep '^version:' | awk '{print $2}')"
 
-        echo "{
-               \"archivePath\": \"deploymentArchive/${archivesBaseName}-${version}.jar\",
-               \"manifestPath\":\"deploymentArchive/manifest.yaml\"
-               }" > ./build/libs/deploymentInfo.json
+        cat >./build/libs/deploymentInfo.json <<EOL
+        {
+          "archivePath": "deploymentArchive/${archivesBaseName}-${version}.jar",
+          "manifestPath": "deploymentArchive/manifest.yaml"
+        }
+        EOL
+
+        chmod +x ./build/libs/deploymentInfo.json
 
     - name: Upload deploymentArchive
       uses: actions/upload-artifact@v1
