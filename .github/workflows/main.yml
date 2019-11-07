@@ -34,6 +34,6 @@ jobs:
         with:
           args: auth '${{ secrets.CF_USERNAME }}' '${{ secrets.CF_PASSWORD }}'
       - name: cf target
-          uses: comsysto/cloudfoundry-action/cli@develop
-          with:
-            args: target -o mvg -s development
+        uses: comsysto/cloudfoundry-action/cli@develop
+        with:
+          args: target -o mvg -s development
