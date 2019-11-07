@@ -18,7 +18,6 @@ jobs:
   #    with:
   #      name: github-action-lab-artifact
   #      path: build/libs
-  #
   deploy:
     runs-on: ubuntu-latest
     steps:
