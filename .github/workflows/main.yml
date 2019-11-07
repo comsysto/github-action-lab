@@ -33,7 +33,7 @@ jobs:
         uses: comsysto/cloudfoundry-action/cli@develop
         with:
           args:
-            - auth
+            - 'auth'
             - "${{ secrets.CF_USERNAME }}"
             - "${{ secrets.CF_PASSWORD }}"
       - name: cf target
