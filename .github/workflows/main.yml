@@ -16,11 +16,11 @@ jobs:
       run: |
         archivesBaseName="$(./gradlew properties -q | grep '^archivesBaseName:' | awk '{print $2}')"
         version="$(./gradlew properties  -q | grep '^version:' | awk '{print $2}')"
-        echo "archivePath: artifactDir/${archivesBaseName}-${version}.jar" >> deployment.yaml
+        echo "archivePath: artifactDir/${archivesBaseName}-${version}.jar" >> ./build/libs/deployment.yaml
     - name: Add manifest to build result
       run: |
         cp ./manifest.yaml ./build/libs
-        echo "manifestPath: artifactDir/manifest.yaml" >> deployment.yaml
+        echo "manifestPath: artifactDir/manifest.yaml" >> ./build/libs/deployment.yaml
     - uses: actions/upload-artifact@v1
       with:
         name: artifactDir
