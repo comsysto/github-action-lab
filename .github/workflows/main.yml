@@ -54,7 +54,15 @@ jobs:
       - name: Read deploymentInfo.json
         id: deploymentInfo
         run: |
-          rawJson=cat deploymentArchive/deploymentInfo.json
+          ls -la deploymentArchive
+
+          echo "----"
+
+          less deploymentArchive/deploymentInfo.json
+
+          echo "----"
+
+          rawJson=(<deploymentArchive/deploymentInfo.json)
 
           echo $rawJson
 
