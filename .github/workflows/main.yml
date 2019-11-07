@@ -54,21 +54,13 @@ jobs:
       - name: Read deploymentInfo.json
         id: deploymentInfo
         run: |
-          ls -la deploymentArchive
-
-          echo "----"
-
-          less deploymentArchive/deploymentInfo.json
-
-          echo "----"
-
           rawJson=$(<deploymentArchive/deploymentInfo.json)
 
           echo $rawJson
 
           echo "Parsing raw json"
 
-          deploymentInfo=toJson($rawJson)
+          deploymentInfo=toJson("$rawJson")
 
           echo "Archive path from deploymentInfo file: ${deploymentInfo.archivePath}"
           echo "Manifest path from deploymentInfo file: ${deploymentInfo.manifestPath}"
