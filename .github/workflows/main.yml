@@ -13,20 +13,25 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew clean build
     - name: Prepare deploymentArchive
-      run: |
-        cp ./manifest.yaml ./build/libs
-
-        archivesBaseName="$(./gradlew properties -q | grep '^archivesBaseName:' | awk '{print $2}')"
-        version="$(./gradlew properties  -q | grep '^version:' | awk '{print $2}')"
-
-        cat >./build/libs/deploymentInfo.json <<EOL
-        {
-          "artifactPath": "deploymentArchive/${archivesBaseName}-${version}.jar",
-          "manifestPath": "deploymentArchive/manifest.yaml"
-        }
-        EOL
-
-        chmod +x ./build/libs/deploymentInfo.json
+      uses: comsysto/deployment-information-action/read@master
+      with:
+        archive-name: deploymentArchive
+        target-path: build/libs
+        target-filename: deploymentInfo.json
+#      run: |
+#        cp ./manifest.yaml ./build/libs
+#
+#        archivesBaseName="$(./gradlew properties -q | grep '^archivesBaseName:' | awk '{print $2}')"
+#        version="$(./gradlew properties  -q | grep '^version:' | awk '{print $2}')"
+#
+#        cat >./build/libs/deploymentInfo.json <<EOL
+#        {
+#          "artifactPath": "deploymentArchive/${archivesBaseName}-${version}.jar",
+#          "manifestPath": "deploymentArchive/manifest.yaml"
+#        }
+#        EOL
+#
+#        chmod +x ./build/libs/deploymentInfo.json
 
     - name: Upload deploymentArchive
       uses: actions/upload-artifact@v1
