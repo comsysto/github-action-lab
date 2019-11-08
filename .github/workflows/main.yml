@@ -12,27 +12,37 @@ jobs:
         java-version: 11
     - name: Build with Gradle
       run: ./gradlew clean build
-    - name: Prepare deploymentArchive
-      #uses: comsysto/deployment-information-action/create@master
-      #with:
-      #  archive-name: deploymentArchive
-      #  target-path: build/libs
+    - name: Copy manifest.yaml
+      run: cp ./manifest.yaml ./build/libs
+    - name: Retrieve artifact information from gradle
+      id: artifact-information
       run: |
-        cp ./manifest.yaml ./build/libs
-
         archivesBaseName="$(./gradlew properties -q | grep '^archivesBaseName:' | awk '{print $2}')"
         version="$(./gradlew properties  -q | gre§p '^version:' | awk '{print $2}')"
 
-        cat >./build/libs/deploymentInfo.json <<EOL
-        {
-          "artifactPath": "deploymentArchive/${archivesBaseName}-${version}.jar",
-          "manifestPath": "deploymentArchive/manifest.yaml"
-        }
-        EOL
-
-        chmod +x ./build/libs/deploymentInfo.json
-
-    - run: cp ./manifest.yaml ./build/libs
+        echo "::set-output name=artifact-base-name::${archivesBaseName}"
+        echo "::set-output name=artifact-version::${version}"
+    - name: Create deployment information
+      uses: comsysto/deployment-information-action/create@master
+      with:
+        artifact-base-name: ${{ steps.artifact-information.outputs.artifact-base-name }}
+        artifact-version: ${{ steps.artifact-information.outputs.artifact-version }}
+        archive-name: deploymentArchive
+        target-path: build/libs
+#      run: |
+#        cp ./manifest.yaml ./build/libs
+#
+#        archivesBaseName="$(./gradlew properties -q | grep '^archivesBaseName:' | awk '{print $2}')"
+#        version="$(./gradlew properties  -q | gre§p '^version:' | awk '{print $2}')"
+#
+#        cat >./build/libs/deploymentInfo.json <<EOL
+#        {
+#          "artifactPath": "deploymentArchive/${archivesBaseName}-${version}.jar",
+#          "manifestPath": "deploymentArchive/manifest.yaml"
+#        }
+#        EOL
+#
+#        chmod +x ./build/libs/deploymentInfo.json
     - name: Upload deploymentArchive
       uses: actions/upload-artifact@v1
       with:
