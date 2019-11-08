@@ -17,7 +17,6 @@ jobs:
       with:
         archive-name: deploymentArchive
         target-path: build/libs
-        target-filename: deploymentInfo.json
 #      run: |
 #        cp ./manifest.yaml ./build/libs
 #
@@ -32,7 +31,8 @@ jobs:
 #        EOL
 #
 #        chmod +x ./build/libs/deploymentInfo.json
-#
+
+    - run: cp ./manifest.yaml ./build/libs
     - name: Upload deploymentArchive
       uses: actions/upload-artifact@v1
       with:
