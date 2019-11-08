@@ -18,7 +18,7 @@ jobs:
       id: artifact-information
       run: |
         archivesBaseName="$(./gradlew properties -q | grep '^archivesBaseName:' | awk '{print $2}')"
-        version="$(./gradlew properties  -q | gre§p '^version:' | awk '{print $2}')"
+        version="$(./gradlew properties  -q | grep '^version:' | awk '{print $2}')"
 
         echo "::set-output name=artifact-base-name::${archivesBaseName}"
         echo "::set-output name=artifact-version::${version}"
