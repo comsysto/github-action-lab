@@ -13,7 +13,7 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew clean build
     - name: Prepare deploymentArchive
-      uses: comsysto/deployment-information-action/read@master
+      uses: comsysto/deployment-information-action/create@master
       with:
         archive-name: deploymentArchive
         target-path: build/libs
@@ -22,7 +22,7 @@ jobs:
 #        cp ./manifest.yaml ./build/libs
 #
 #        archivesBaseName="$(./gradlew properties -q | grep '^archivesBaseName:' | awk '{print $2}')"
-#        version="$(./gradlew properties  -q | grep '^version:' | awk '{print $2}')"
+#        version="$(./gradlew properties  -q | gre§p '^version:' | awk '{print $2}')"
 #
 #        cat >./build/libs/deploymentInfo.json <<EOL
 #        {
