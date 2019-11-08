@@ -31,7 +31,7 @@ jobs:
 #        EOL
 #
 #        chmod +x ./build/libs/deploymentInfo.json
-
+#
     - run: cp ./manifest.yaml ./build/libs
     - name: Upload deploymentArchive
       uses: actions/upload-artifact@v1
