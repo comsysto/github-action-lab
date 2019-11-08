@@ -1,6 +1,5 @@
-name: Couldfoundry CI Lab
+name: Could Foundry CI Lab
 on: [push]
-#
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -54,7 +53,7 @@ jobs:
           name: deploymentArchive
       - name: Read deploymentInfo.json
         id: deploymentInfo
-        uses: comsysto/deployment-information-action/read@release
+        uses: comsysto/deployment-information-action/read@master
         with:
           archive-path: deploymentArchive
       - name: cf push
