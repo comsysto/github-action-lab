@@ -1,1 +1,1 @@
-rootProject.name = "agile-dev-starter"
+rootProject.name = "github-action-lab"

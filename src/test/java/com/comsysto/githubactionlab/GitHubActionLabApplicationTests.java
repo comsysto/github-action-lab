@@ -1,4 +1,4 @@
-package com.comsysto.agiledevstarter;
+package com.comsysto.githubactionlab;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class AgileDevStarterApplicationTests {
+public class GitHubActionLabApplicationTests {
 
     @Test
     public void contextLoads() {

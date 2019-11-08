@@ -1,13 +1,13 @@
-package com.comsysto.agiledevstarter;
+package com.comsysto.githubactionlab;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AgileDevStarterApplication {
+public class GitHubActionLabApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AgileDevStarterApplication.class, args);
+        SpringApplication.run(GitHubActionLabApplication.class, args);
     }
 
 }

@@ -1,13 +1,10 @@
 applications:
-  - name: agile-dev-starter
+  - name: github-action-lab
     memory: 1024M
     disk_quota: 1024M
     buildpacks:
       - java_buildpack
     stack: cflinuxfs3
-    services:
-      - agile-dev-starter-db
-      - agile-dev-starter-sample-ups
     env:
       JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ }}' # Java buildpack configuration to set a Java version
       SPRING_PROFILES_INCLUDE: cloud                       # Activate Spring cloud profile
