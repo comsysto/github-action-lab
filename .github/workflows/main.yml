@@ -1,4 +1,4 @@
-name: Could Foundry CI Lab
+name: Cloud Foundry CI Lab
 on: [push]
 jobs:
   build:
@@ -22,7 +22,7 @@ jobs:
         echo "::set-output name=artifact-base-name::${archivesBaseName}"
         echo "::set-output name=artifact-version::${version}"
     - name: Create deployment information
-      uses: comsysto/deployment-information-action/create@master
+      uses: comsysto/deployment-information-action/create@v1.0
       with:
         artifact-base-name: ${{ steps.artifact-information.outputs.artifact-base-name }}
         artifact-version: ${{ steps.artifact-information.outputs.artifact-version }}
@@ -53,7 +53,7 @@ jobs:
           name: deploymentArchive
       - name: Read deploymentInfo.json
         id: deploymentInfo
-        uses: comsysto/deployment-information-action/read@master
+        uses: comsysto/deployment-information-action/read@v1.0
         with:
           archive-path: deploymentArchive
       - name: cf push
