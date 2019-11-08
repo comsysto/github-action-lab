@@ -29,20 +29,6 @@ jobs:
         artifact-version: ${{ steps.artifact-information.outputs.artifact-version }}
         archive-name: deploymentArchive
         target-path: build/libs
-#      run: |
-#        cp ./manifest.yaml ./build/libs
-#
-#        archivesBaseName="$(./gradlew properties -q | grep '^archivesBaseName:' | awk '{print $2}')"
-#        version="$(./gradlew properties  -q | gre§p '^version:' | awk '{print $2}')"
-#
-#        cat >./build/libs/deploymentInfo.json <<EOL
-#        {
-#          "artifactPath": "deploymentArchive/${archivesBaseName}-${version}.jar",
-#          "manifestPath": "deploymentArchive/manifest.yaml"
-#        }
-#        EOL
-#
-#        chmod +x ./build/libs/deploymentInfo.json
     - name: Upload deploymentArchive
       uses: actions/upload-artifact@v1
       with:
@@ -63,7 +49,7 @@ jobs:
         with:
           args: target -o mvg -s development
       - name: Download artifact
-        uses: actions/download-artifact@v1.0
+        uses: actions/download-artifact@v1
         with:
           name: deploymentArchive
       - name: Read deploymentInfo.json
