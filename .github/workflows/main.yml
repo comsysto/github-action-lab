@@ -43,17 +43,17 @@ jobs:
     needs: build
     steps:
       - name: cf login to https://api.run.pivotal.io
-        uses: comsysto/cloudfoundry-action/auth@v1
+        uses: comsysto/cloudfoundry-action/auth@v1.0
         with:
           api: 'https://api.run.pivotal.io'
           user: ${{ secrets.CF_USERNAME }}
           password: ${{ secrets.CF_PASSWORD }}
       - name: cf target -o mvg -s development
-        uses: comsysto/cloudfoundry-action/cli@v1
+        uses: comsysto/cloudfoundry-action/cli@v1.0
         with:
           args: target -o mvg -s development
       - name: Download artifact
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v1.0
         with:
           name: deploymentArchive
       - name: Read deploymentInfo.json
@@ -62,6 +62,6 @@ jobs:
         with:
           archive-path: deploymentArchive
       - name: cf push
-        uses: comsysto/cloudfoundry-action/cli@v1
+        uses: comsysto/cloudfoundry-action/cli@v1.0
         with:
           args: push -f ${{ steps.deploymentInfo.outputs.cf-manifest-path }} -p ${{ steps.deploymentInfo.outputs.artifact-path }} --no-start
