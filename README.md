@@ -1,4 +1,4 @@
-![GitHub Actions status | comstysto/github-action-lab](https://github.com/comsysto/github-action-lab/workflows/Cloud%20Foundry%20CI%20Lab/badge.svg)
+![GitHub Actions status | comsysto/github-action-lab](https://github.com/comsysto/github-action-lab/workflows/Cloud%20Foundry%20CI%20Lab/badge.svg)
 
 # GitHub Action Lab
 
