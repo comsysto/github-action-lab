@@ -32,7 +32,7 @@ jobs:
 #        EOL
 #
 #        chmod +x ./build/libs/deploymentInfo.json
-
+#
     - name: Upload deploymentArchive
       uses: actions/upload-artifact@v1
       with:
