@@ -2,10 +2,9 @@
 
 # GitHub Action Lab
 
-This is just a tender application for triggering and deploying a spring boot application to cloudfoundry.
+This is just a tender application to demonstrate the build and deployment of a spring boot application to cloudfoundry with GitHub actions.
 
-GitHub workflow is used to trigger build and deployment using the actions:
+GitHub actions used in the [workflow](.github/workflows/main.yml):
 
 * [deployment-information-action](https://github.com/comsysto/deployment-information-action)
 * [cloudfoundry-action](https://github.com/comsysto/cloudfoundry-action)
-
