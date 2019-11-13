@@ -43,10 +43,10 @@ jobs:
           api: 'https://api.run.pivotal.io'
           user: ${{ secrets.CF_USERNAME }}
           password: ${{ secrets.CF_PASSWORD }}
-      - name: cf target -o mvg -s development
+      - name: cf target -o my-org -s development
         uses: comsysto/cloudfoundry-action/cli@v1.0
         with:
-          args: target -o mvg -s development
+          args: target -o my-org -s development
       - name: Download artifact
         uses: actions/download-artifact@v1
         with:
